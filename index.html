@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Projet : Application de Gestion de Formation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: #f8f8ff;
+            color: #222;
+            margin: 0;
+            padding: 0 0 40px 0;
+        }
+        .cover {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            background: linear-gradient(135deg, #e3f0ff 0%, #f8f8ff 100%);
+            border-bottom: 2px solid #2980b9;
+        }
+        .cover h1 {
+            font-size: 2.6em;
+            color: #2b547e;
+            margin-bottom: 0.2em;
+        }
+        .cover h3 {
+            font-size: 1.4em;
+            color: #2980b9;
+            margin-top: 0;
+        }
+        .cover .authors {
+            margin: 30px 0 10px 0;
+            font-size: 1.1em;
+        }
+        .cover .year {
+            font-weight: bold;
+            color: #b7950b;
+            margin-top: 10px;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 36px 32px 32px 32px;
+        }
+        h2, h3, h4 {
+            color: #2b547e;
+        }
+        ul, ol {
+            margin-left: 25px;
+        }
+        img.diagram {
+            display: block;
+            margin: 18px auto;
+            max-width: 100%;
+            border: 1px solid #2980b9;
+            border-radius: 6px;
+            background: #f8f8ff;
+        }
+        .section-title {
+            border-left: 6px solid #2980b9;
+            padding-left: 14px;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            font-size: 1.5em;
+            background: linear-gradient(90deg, #e3f0ff 0%, #fff 100%);
+        }
+        .annexes {
+            margin-top: 35px;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <div style="display: flex; justify-content: center;">
+            <img src="utm.png" alt="Université de Tunis El Manar" style="max-width: 200px; margin-bottom: 18px; display: block; margin-left: auto; margin-right: auto;"/>
+            <img src="isi.png" alt="Institut Supérieur d'Informatique" style="max-width: 220px; margin-bottom: 24px; display: block; margin-left: auto; margin-right: auto;"/>
+        </div>
+        <h1>Application de Gestion de Formation</h1>
+        <h3>Mini Projet - Base de Données</h3>
+        <div class="authors">
+            <strong>Réalisé par :</strong><br>
+            Montassar Tayachi<br>
+            Nermine Bouzidi
+        </div>
+        <div class="year">Année universitaire 2024/2025</div>
+    </div>
+    <main>
+        <h2 class="section-title">1. Introduction</h2>
+        <p>La formation professionnelle continue est essentielle pour l’évolution des compétences des employés et la performance des entreprises. Ce projet vise à concevoir et développer une application web permettant la gestion complète des formations au sein du centre « Excellent Training » de la société « Green Building ».</p>
+
+        <h2 class="section-title">2. Objectifs du Projet</h2>
+        <ul>
+            <li>Informatiser la gestion des formations, des participants, des formateurs et des statistiques.</li>
+            <li>Faciliter la planification, le suivi et l’évaluation des sessions de formation.</li>
+            <li>Offrir des droits adaptés à chaque type d’utilisateur (administrateur, responsable, simple utilisateur, formateur).</li>
+        </ul>
+
+        <h2 class="section-title">3. Analyse des Besoins</h2>
+        <h3>Acteurs principaux</h3>
+        <ul>
+            <li><b>Administrateur</b> : Accès illimité, gestion des utilisateurs, domaines, structures, profils, et toutes les tâches des autres acteurs.</li>
+            <li><b>Responsable Centre</b> : Consultation et analyse des statistiques.</li>
+            <li><b>Simple Utilisateur</b> : Gestion des formateurs, formations et participants.</li>
+            <li><b>Formateur</b> : Animation des formations et gestion de la présence des participants.</li>
+        </ul>
+        <h3>Principales fonctionnalités</h3>
+        <ul>
+            <li>Authentification et gestion des droits (JWT, Spring Security).</li>
+            <li>Gestion des utilisateurs et des rôles.</li>
+            <li>Gestion des structures, profils, domaines.</li>
+            <li>Gestion des formations (création, modification, ajout de participants).</li>
+            <li>Gestion des participants et des formateurs.</li>
+            <li>Gestion de la présence des participants par le formateur.</li>
+            <li>Consultation, génération et filtrage des statistiques.</li>
+        </ul>
+
+        <h2 class="section-title">4. Architecture technique</h2>
+        <ul>
+            <li><b>Backend</b> : Spring Boot (Spring Web, Spring Data JPA, Lombok, etc.), sécurité assurée par Spring Security et authentification JWT.</li>
+            <li><b>Base de données</b> : PostgreSQL</li>
+            <li><b>Frontend</b> : React.js</li>
+            <li><b>UI/UX</b> : Tailwind CSS et Material UI pour des interfaces modernes et responsives</li>
+            <li><b>Tests d’API</b> : Postman</li>
+            <li><b>Génération de données de test</b> : Faker.js</li>
+        </ul>
+        <p>Ce choix de technologies permet de garantir la robustesse, la sécurité, la maintenabilité et la scalabilité de la plateforme.</p>
+
+        <h2 class="section-title">5. Modélisation UML</h2>
+        <h3>5.1 Diagramme de cas d'utilisation</h3>
+        <img src="Diagramme%20Use%20Case%20UML.svg" alt="Diagramme Use Case UML" class="diagram">
+
+        <h3>5.2 Diagramme de classes</h3>
+        <img src="Diagramme%20de%20Classes.svg" alt="Diagramme de Classes" class="diagram">
+
+        <h3>5.3 Diagrammes de séquence</h3>
+        <b>Simple utilisateur</b>
+        <img src="Gestion%20par%20le%20simple%20utilisateur.svg" alt="Gestion par le simple utilisateur" class="diagram">
+        <b>Responsable centre</b>
+        <img src="Consultation%20et%20analyse%20par%20le%20responsable.svg" alt="Consultation et analyse par le responsable" class="diagram">
+        <b>Administrateur</b>
+        <img src="Gestion%20globale%20par%20l'administrateur.svg" alt="Gestion globale par l'administrateur" class="diagram">
+        <b>Formateur</b>
+        <img src="sequence_formateur.svg" alt="Séquence du formateur" class="diagram">
+
+        <h2 class="section-title">6. Conclusion</h2>
+        <p>Ce projet offre une solution complète, moderne et évolutive pour la gestion de la formation professionnelle. Il permet d’automatiser les tâches, d’améliorer la traçabilité et la prise de décision, tout en garantissant la sécurité et la simplicité d’utilisation.</p>
+
+    </main>
+</body>
+</html>
