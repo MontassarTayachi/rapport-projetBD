@@ -10,7 +10,8 @@
 <p align="center">
   <b>Réalisé par :</b><br>
   <b>Montassar Tayachi</b><br>
-  <b>Nermine Bouzidi</b>
+  <b>Nermine Bouzidi</b><br>
+  <b>Classe : 1ING4</b>
 </p>
 
 <p align="center"><i>Année universitaire 2024/2025</i></p>
@@ -97,12 +98,32 @@ Ce projet offre une solution complète, moderne et évolutive pour la gestion de
 
 ## Annexes : Captures d’écran
 
+**Page d'accueil**
+
 ![HomePage](images/HomePage.png)
+
+**Page de connexion**
+
 ![LoginPage](images/loginPage.png)
+
+**Espace Administrateur**
+
 ![Admin espace](images/adminEspace.png)
+
+**Espace Responsable**
+
 ![Responsable espace](images/ResponsableEspace.png)
+
+**Espace Formateur**
+
 ![Formateur espace](images/formateurEsapace.png)
+
+**Espace Utilisateur**
+
 ![User espace](images/userEspace.png)
+
+**Ajout d'un utilisateur**
+
 ![Ajouter un utilisateur](images/adduser.png)
 
 *Annexes : diagrammes UML, extraits du cahier des charges, captures d’écran.*
