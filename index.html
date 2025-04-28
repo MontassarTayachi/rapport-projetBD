@@ -76,6 +76,72 @@
         .capture-block {
             margin-bottom: 20px;
         }
+        .toc-nav {
+            background: linear-gradient(90deg, #e3f0ff 0%, #fff 100%);
+            border: 1.5px solid #2980b9;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px #0001;
+            max-width: 420px;
+            margin: 32px auto 40px auto;
+            padding: 22px 30px 18px 30px;
+            text-align: left;
+        }
+        .toc-title {
+            font-weight: bold;
+            color: #2b547e;
+            font-size: 1.25em;
+            margin-bottom: 13px;
+            letter-spacing: 1px;
+        }
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        .toc-list li a {
+            color: #2980b9;
+            text-decoration: none;
+            font-size: 1.08em;
+            padding-left: 5px;
+            transition: color 0.2s;
+        }
+        .toc-list li a:hover {
+            color: #174c7c;
+            text-decoration: underline;
+        }
+        .toc-list ul.toc-sub {
+            margin-top: 3px;
+            margin-bottom: 5px;
+            margin-left: 18px;
+            padding-left: 14px;
+            border-left: 2px solid #b2c6e2;
+        }
+        .toc-list ul.toc-sub li {
+            margin-bottom: 3px;
+            font-size: 0.98em;
+        }
+        .toc-list ul.toc-sub li a {
+            color: #2262a8;
+            font-size: 1em;
+            padding-left: 2px;
+        }
+        .archi-section {
+            margin-bottom: 18px;
+        }
+        .archi-section h3 {
+            color: #174c7c;
+            margin-top: 10px;
+            margin-bottom: 7px;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+        .archi-section ul {
+            margin-left: 18px;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
@@ -95,54 +161,120 @@
         <div class="year">Année universitaire 2024/2025</div>
     </div>
     <main>
-        <h2 class="section-title">1. Introduction</h2>
+        <nav class="toc-nav">
+            <div class="toc-title">Sommaire</div>
+            <ul class="toc-list">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#objectifs">Objectifs du Projet</a></li>
+                <li><a href="#analyse">Analyse des Besoins</a>
+                  <ul class="toc-sub">
+                    <li><a href="#acteurs">Acteurs principaux</a></li>
+                    <li><a href="#fonctionnalites">Principales fonctionnalités</a></li>
+                  </ul>
+                </li>
+                <li><a href="#architecture">Architecture technique</a>
+                    <ul class="toc-sub">            
+                        <li><a href="#env-materiel">Environnements de développement matériel</a></li>
+                        <li><a href="#env-logiciel">Environnements de développement logiciel</a></li>
+                        <li><a href="#logiciels-utilises">Les logiciels utilisés</a></li>
+                    </ul>
+                </li>
+                <li><a href="#modelisation">Modélisation UML</a>
+                  <ul class="toc-sub">
+                    <li><a href="#usecase">Diagramme de cas d'utilisation</a></li>
+                    <li><a href="#classes">Diagramme de classes</a></li>
+                    <li><a href="#sequence">Diagrammes de séquence</a></li>
+                  </ul>
+                </li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#annexes">Annexes : Captures d’écran</a></li>
+            </ul>
+        </nav>
+        <h2 class="section-title" id="introduction">1. Introduction</h2>
         <p>La formation professionnelle continue est essentielle pour l’évolution des compétences des employés et la performance des entreprises. Ce projet vise à concevoir et développer une application web permettant la gestion complète des formations au sein du centre « Excellent Training » de la société « Green Building ».</p>
+        <p><b>Contexte :</b> La digitalisation des processus de formation est devenue incontournable pour les centres de formation modernes. Elle permet d’optimiser la gestion administrative, d’améliorer l’expérience utilisateur et de garantir la traçabilité des actions.</p>
+        <p><b>Problématique :</b> Comment centraliser, sécuriser et automatiser la gestion des formations, tout en offrant une interface intuitive à chaque acteur ?</p>
 
-        <h2 class="section-title">2. Objectifs du Projet</h2>
+        <h2 class="section-title" id="objectifs">2. Objectifs du Projet</h2>
         <ul>
             <li>Informatiser la gestion des formations, des participants, des formateurs et des statistiques.</li>
             <li>Faciliter la planification, le suivi et l’évaluation des sessions de formation.</li>
             <li>Offrir des droits adaptés à chaque type d’utilisateur (administrateur, responsable, simple utilisateur, formateur).</li>
+            <li>Garantir la sécurité des données et la conformité RGPD.</li>
+            <li>Permettre la génération automatisée de rapports et de statistiques détaillées.</li>
         </ul>
 
-        <h2 class="section-title">3. Analyse des Besoins</h2>
-        <h3>Acteurs principaux</h3>
+        <h2 class="section-title" id="analyse">3. Analyse des Besoins</h2>
+        <h3 id="acteurs">Acteurs principaux</h3>
         <ul>
             <li><b>Administrateur</b> : Accès illimité, gestion des utilisateurs, domaines, structures, profils, et toutes les tâches des autres acteurs.</li>
-            <li><b>Responsable Centre</b> : Consultation et analyse des statistiques.</li>
-            <li><b>Simple Utilisateur</b> : Gestion des formateurs, formations et participants.</li>
-            <li><b>Formateur</b> : Animation des formations et gestion de la présence des participants.</li>
+            <li><b>Responsable Centre</b> : Consultation et analyse des statistiques, validation des formations, suivi des indicateurs clés.</li>
+            <li><b>Simple Utilisateur</b> : Gestion des formateurs, formations et participants, consultation du catalogue, inscription aux sessions.</li>
+            <li><b>Formateur</b> : Animation des formations, gestion de la présence, évaluation des participants, accès aux ressources pédagogiques.</li>
         </ul>
-        <h3>Principales fonctionnalités</h3>
+        <h3 id="fonctionnalites">Principales fonctionnalités</h3>
         <ul>
             <li>Authentification et gestion des droits (JWT, Spring Security).</li>
-            <li>Gestion des utilisateurs et des rôles.</li>
-            <li>Gestion des structures, profils, domaines.</li>
-            <li>Gestion des formations (création, modification, ajout de participants).</li>
-            <li>Gestion des participants et des formateurs.</li>
-            <li>Gestion de la présence des participants par le formateur.</li>
-            <li>Consultation, génération et filtrage des statistiques.</li>
+            <li>Gestion des utilisateurs et des rôles avec hiérarchisation des accès.</li>
+            <li>Gestion des structures, profils, domaines et catalogues de formation.</li>
+            <li>Gestion des formations (création, modification, ajout de participants, gestion des salles et plannings).</li>
+            <li>Gestion des participants et des formateurs (historique, progression, évaluations).</li>
+            <li>Gestion de la présence des participants par le formateur (émargement numérique, alertes d’absence).</li>
+            <li>Consultation, génération et filtrage des statistiques (tableaux de bord dynamiques).</li>
+            <li>Notifications par email et tableau de bord personnalisable.</li>
         </ul>
 
-        <h2 class="section-title">4. Architecture technique</h2>
-        <ul>
-            <li><b>Backend</b> : Spring Boot (Spring Web, Spring Data JPA, Lombok, etc.), sécurité assurée par Spring Security et authentification JWT.</li>
-            <li><b>Base de données</b> : PostgreSQL</li>
-            <li><b>Frontend</b> : React.js</li>
-            <li><b>UI/UX</b> : Tailwind CSS et Material UI pour des interfaces modernes et responsives</li>
-            <li><b>Tests d’API</b> : Postman</li>
-            <li><b>Génération de données de test</b> : Faker.js</li>
-        </ul>
-        <p>Ce choix de technologies permet de garantir la robustesse, la sécurité, la maintenabilité et la scalabilité de la plateforme.</p>
+        <h2 class="section-title" id="architecture">4. Architecture technique</h2>
+     
+        <div class="archi-section">
+            <h3 id="env-materiel">Environnements de développement matériel</h3>
+            <ul>
+                <li><b>Premier PC :</b> Asus 10G<br>
+                    - Système d'exploitation : Windows 11<br>
+                    - Disque dur : 512 GO SSD<br>
+                    - RAM : 8 Go<br>
+                    - Processeur : Intel(R) Core(TM) i3-10110U
+                </li>
+                <li><b>Deuxième PC :</b> Gigabyte G5<br>
+                    - Système d'exploitation : Ubuntu 22.04<br>
+                    - Disque dur : 512 GO SSD<br>
+                    - RAM : 32 Go<br>
+                    - Processeur : Intel Core i5-12500H
+                </li>
+            </ul>
+        </div>
+        <div class="archi-section">
+            <h3 id="env-logiciel">Environnements de développement logiciel</h3>
+            <ul>
+                <li><b>Backend</b> : Spring Boot (Spring Web, Spring Data JPA, Lombok, etc.), sécurité assurée par Spring Security et authentification JWT.</li>
+                <li><b>Base de données</b> : PostgreSQL, schéma relationnel optimisé pour la gestion des entités et des relations.</li>
+                <li><b>Frontend</b> : React.js, interfaces responsives et dynamiques.</li>
+                <li><b>UI/UX</b> : Tailwind CSS et Material UI pour des interfaces modernes et ergonomiques.</li>
+                <li><b>Génération de données de test</b> : Faker.js, jeux de données réalistes pour la validation.</li>
+                
+            </ul>
+        </div>
+        <div class="archi-section">
+            <h3 id="logiciels-utilises">Les logiciels utilisés</h3>
+            <ul>
+                <li><b>Visual Studio Code</b> : Éditeur de code principal utilisé pour le développement, offrant des fonctionnalités avancées, des extensions et une interface intuitive.</li>
+                <li><b>Postman</b> : Outil de test et de validation des API, permettant de simuler des requêtes, d’automatiser des scénarios et d’assurer la fiabilité des échanges backend/frontend.</li>
+                <li><b>Git et GitHub</b> : Gestion du versionnement du code, sauvegarde, suivi des modifications et collaboration efficace entre les membres de l’équipe.</li>
+            </ul>
+        </div>
+        <p>Cette architecture modulaire et moderne permet d’assurer la sécurité, la maintenabilité, la performance et l’évolutivité de la solution, tout en facilitant l’ajout de nouvelles fonctionnalités selon les besoins futurs.</p>
 
-        <h2 class="section-title">5. Modélisation UML</h2>
-        <h3>5.1 Diagramme de cas d'utilisation</h3>
+        <h2 class="section-title" id="modelisation">5. Modélisation UML</h2>
+        <h3 id="usecase">5.1 Diagramme de cas d'utilisation</h3>
+        <p>Ce diagramme présente les interactions principales entre les acteurs et le système, illustrant les cas d’utilisation majeurs (gestion des utilisateurs, gestion des formations, consultation des statistiques, etc.).</p>
         <img src="images/Diagramme%20Use%20Case%20UML.svg" alt="Diagramme Use Case UML" class="diagram">
 
-        <h3>5.2 Diagramme de classes</h3>
+        <h3 id="classes">5.2 Diagramme de classes</h3>
+        <p>Le diagramme de classes détaille la structure des entités (Utilisateur, Formation, Participant, etc.) et les relations entre elles. Il permet de visualiser l’organisation des données et les dépendances métiers.</p>
         <img src="images/Diagramme%20de%20Classes.svg" alt="Diagramme de Classes" class="diagram">
 
-        <h3>5.3 Diagrammes de séquence</h3>
+        <h3 id="sequence">5.3 Diagrammes de séquence</h3>
+        <p>Les diagrammes de séquence décrivent le déroulement temporel des interactions entre les acteurs et le système pour différents scénarios (inscription, gestion de la présence, génération de rapports, etc.).</p>
         <b>Simple utilisateur</b>
         <img src="images/Gestion%20par%20le%20simple%20utilisateur.svg" alt="Gestion par le simple utilisateur" class="diagram">
         <b>Responsable centre</b>
@@ -152,10 +284,10 @@
         <b>Formateur</b>
         <img src="images/sequence_formateur.svg" alt="Séquence du formateur" class="diagram">
 
-        <h2 class="section-title">6. Conclusion</h2>
-        <p>Ce projet offre une solution complète, moderne et évolutive pour la gestion de la formation professionnelle. Il permet d’automatiser les tâches, d’améliorer la traçabilité et la prise de décision, tout en garantissant la sécurité et la simplicité d’utilisation.</p>
+        <h2 class="section-title" id="conclusion">6. Conclusion</h2>
+        <p>Ce projet offre une solution complète, moderne et évolutive pour la gestion de la formation professionnelle. Il permet d’automatiser les tâches, d’améliorer la traçabilité et la prise de décision, tout en garantissant la sécurité, la conformité et la simplicité d’utilisation. Des perspectives d’évolution incluent l’intégration de l’IA pour la recommandation de parcours, l’export PDF, et la gestion multi-centres.</p>
 
-        <h2 class="section-title">Annexes : Captures d’écran</h2>
+        <h2 class="section-title" id="annexes">Annexes : Captures d’écran</h2>
         <div class="capture-block">
             <h4>Page d'accueil</h4>
             <img src="images/HomePage.png" alt="HomePage" class="diagram">
